@@ -21,3 +21,8 @@ const map = new Map({
     zoom: 2
   })
 });
+
+navigator.geolocation.getCurrentPosition(function(pos) {
+  const coords = fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  map.getView().animate({center: coords, zoom: 10});
+});
